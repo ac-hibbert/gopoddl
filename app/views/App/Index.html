@@ -1,0 +1,28 @@
+{{set . "title" "Home"}}
+{{template "header.html" .}}
+
+<header class="jumbotron" style="background-color:#ADD8E6">
+  <div class="container">
+    <div class="row">
+      <h1>Go Podcast Downloader</h1>
+      <p></p>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="span6">
+      {{template "flash.html" .}}
+    </div>
+  </div>
+</div>
+
+<form action="/App/Getepisodes" method="GET">
+  {{with $field := field "podcasturl" .}}
+      <input type="text" name="{{$field.Name}}" value="{{$field.Flash}}"/><br/>
+  {{end}}
+  <input type="submit" value="Submit Podcast" />
+</form>
+
+{{template "footer.html" .}}
